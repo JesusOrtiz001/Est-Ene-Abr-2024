@@ -28,21 +28,21 @@ public class LoginActivity extends AppCompatActivity {
 
     String URL_SERVIDOR = "http://192.168.1.137/server/login.php";
 
-    private EditText rp, ECO;
-    private Button btnInit, btnReg;
+    EditText etUsuario, etContrasena;
+    Button btnLogin, btnRegistrar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        rp = findViewById(R.id.edituser);
-        ECO = findViewById(R.id.editpwd);
-        btnInit = findViewById(R.id.btnInit);
-        btnReg = findViewById(R.id.btnReg);
+        etUsuario = findViewById(R.id.edituser);
+        etContrasena = findViewById(R.id.editpwd);
+        btnLogin = findViewById(R.id.btnInit);
+        btnRegistrar = findViewById(R.id.btnReg);
 
-        btnInit.setOnClickListener(v -> login());
-        btnReg.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), RegisterActivity.class)));
+        btnLogin.setOnClickListener(v -> login());
+        btnRegistrar.setOnClickListener(v -> startActivity(new Intent(LoginActivity.this, RegisterActivity.class)));
     }
 
     public void login() {
@@ -70,8 +70,8 @@ public class LoginActivity extends AppCompatActivity {
             protected Map<String, String> getParams() throws AuthFailureError {
 
                 Map<String, String> parametros = new Hashtable<String, String>();
-                parametros.put("RP",rp.getText().toString().trim());
-                parametros.put("NO. ECO", ECO.getText().toString().trim());
+                parametros.put("usuario", etUsuario.getText().toString().trim());
+                parametros.put("contrasena", etContrasena.getText().toString().trim());
 
                 return parametros;
             }
