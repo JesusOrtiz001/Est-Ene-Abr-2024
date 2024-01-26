@@ -1,205 +1,158 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
-    <View
-        android:id="@+id/top_view"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:background="@drawable/bg_view"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="INSPECCIÓN VEHICULAR"
-        android:textSize="24sp"
-        android:fontFamily="sans-serif-condensed"
-        android:layout_gravity="center"
-        android:gravity="center"/>
+    android:padding="15dp"
+    tools:context=".LoginActivity">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/top_view">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <LinearLayout
+            <ImageView
+                android:id="@+id/panYuri"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/cfe" />
+
+            <TextView
+                android:id="@+id/Bien"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="¡Bienvenido!"
+                android:textSize="30dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_weight="1"
-                    android:text="REVISION DIARIA PARQUE\nVEHICULAR"
-                    android:gravity="center" />
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_weight="1"
-
-                    app:boxBackgroundMode="outline"
-                    app:helperText="Zona"
-                    app:startIconDrawable="@drawable/zone"
-                    android:clickable="true"
-                    android:focusable="true"
-                    app:maxLines="1"
-                    app:endIconMode="clear_text">
-
-                    <AutoCompleteTextView
-                        android:id="@+id/zone"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="number"/>
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="10dp"
 
-                <com.google.android.material.textfield.TextInputLayout
+                android:hint="RP"
+                app:boxBackgroundMode="outline"
+                app:helperText="Escriba su RP"
+                app:endIconMode="clear_text"
+                app:startIconDrawable="@drawable/email"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <AutoCompleteTextView
+                    android:id="@+id/edituser"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_weight="1"
+                    android:inputType="textEmailAddress"/>
 
-                    app:boxBackgroundMode="outline"
-                    app:helperText="Fecha de revisión"
-                    app:startIconDrawable="@drawable/calendar_icon"
-                    android:clickable="true"
-                    android:focusable="false"
-                    app:maxLines="1"
-                    app:endIconMode="clear_text">
+            </com.google.android.material.textfield.TextInputLayout>
 
-                    <AutoCompleteTextView
-                        android:id="@+id/fecha"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="number" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_weight="1"
-
-                    app:boxBackgroundMode="outline"
-                    app:helperText="Área"
-                    app:startIconDrawable="@drawable/area"
-                    app:maxLines="2"
-                    app:endIconMode="clear_text">
-
-                    <AutoCompleteTextView
-                        android:id="@+id/area"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="textPersonName" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
 
-                <com.google.android.material.textfield.TextInputLayout
+                android:hint="NO. ECO"
+                app:boxBackgroundMode="outline"
+                app:helperText="Escriba su NO. ECO"
+                app:endIconMode="password_toggle"
+                app:startIconDrawable="@drawable/ic_twotone_lock_24"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <AutoCompleteTextView
+                    android:id="@+id/editpwd"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="6dp"
-                    android:layout_marginEnd="6dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_weight="1"
+                    android:inputType="textPassword"/>
 
-                    app:boxBackgroundMode="outline"
-                    app:helperText="No. ECO"
-                    app:maxLines="1"
-                    app:endIconMode="clear_text">
+            </com.google.android.material.textfield.TextInputLayout>
 
-                    <AutoCompleteTextView
-                        android:id="@+id/eco"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="number"/>
+            <!--<ImageView
+                android:id="@+id/imageView"
+                android:layout_width="100dp"
+                android:layout_height="99dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.09"
+                app:srcCompat="@drawable/panyuri" />-->
 
-                </com.google.android.material.textfield.TextInputLayout>
+            <Button
+                android:id="@+id/btnInit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:text="Iniciar Sesión"
+                android:textColor="#fff"
+                app:backgroundTint="#019A47"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="6dp"
-                    android:layout_marginEnd="6dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_weight="1"
+            <Button
+                android:id="@+id/btnReg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_gravity="center"
+                android:text="Registrarse"
+                android:textColor="#fff"
+                app:backgroundTint="#019A47"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.809" />
 
-                    app:boxBackgroundMode="outline"
-                    app:helperText="KM"
-                    app:startIconDrawable="@drawable/car"
-                    app:maxLines="1"
-                    app:endIconMode="clear_text">
-
-                    <AutoCompleteTextView
-                        android:id="@+id/km"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="number" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="6dp"
-                    android:layout_marginEnd="6dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_weight="1"
-
-                    app:boxBackgroundMode="outline"
-                    app:helperText="Nombre/RPE"
-                    app:startIconDrawable="@drawable/person"
-                    app:endIconMode="clear_text"
-                    app:maxLines="1">
-
-                    <AutoCompleteTextView
-                        android:id="@+id/person"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="textPersonName" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-            </LinearLayout>
+            <Button
+                android:id="@+id/reset"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:text="¿Olvidó su contraseña?"
+                android:textColor="#fff"
+                app:backgroundTint="#019A47"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.992" />
 
         </LinearLayout>
 
     </ScrollView>
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
