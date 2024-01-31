@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import java.util.Calendar;
 
@@ -22,6 +24,13 @@ public class ServerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_server);
+
+        TextView userOnline = findViewById(R.id.user);
+        Intent intent = getIntent();
+        if (intent != null) {
+            String textToDisplay = intent.getStringExtra("Usuario");
+            userOnline.setText(textToDisplay);
+        }
 
         sYearIni = calendar.get(Calendar.YEAR);
         sMonthIni = calendar.get(Calendar.MONTH);

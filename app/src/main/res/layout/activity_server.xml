@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:text="INSPECCIÓN VEHICULAR"
+        android:text="REGISTRO VEHICULAR"
         android:textSize="24sp"
         android:fontFamily="sans-serif-condensed"
         android:layout_gravity="center"
@@ -32,171 +32,150 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/gen"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="15dp"
+                android:layout_weight="1"
+                android:text="DATOS GENERALES"
+                android:gravity="center" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_weight="1"
-                    android:text="REVISION DIARIA PARQUE\nVEHICULAR"
-                    android:gravity="center" />
+                    android:layout_margin="10dp"
+                    android:text="RPE: " />
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/user"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_weight="1"
-
-                    app:boxBackgroundMode="outline"
-                    app:helperText="Zona"
-                    app:startIconDrawable="@drawable/zone"
-                    android:clickable="true"
-                    android:focusable="true"
-                    app:maxLines="1"
-                    app:endIconMode="clear_text">
-
-                    <AutoCompleteTextView
-                        android:id="@+id/zone"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="number"/>
-
-                </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_margin="10dp"
+                    android:text="" />
 
             </LinearLayout>
 
-            <LinearLayout
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_height="match_parent">
 
-                <com.google.android.material.textfield.TextInputLayout
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
-                    app:boxBackgroundMode="outline"
-                    app:helperText="Fecha de revisión"
-                    app:startIconDrawable="@drawable/calendar_icon"
-                    android:clickable="true"
-                    android:focusable="false"
-                    app:maxLines="1"
-                    app:endIconMode="clear_text">
-
-                    <AutoCompleteTextView
-                        android:id="@+id/fecha"
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="number" />
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_weight="1"
 
-                </com.google.android.material.textfield.TextInputLayout>
+                        app:boxBackgroundMode="outline"
+                        app:helperText="Zona"
+                        app:startIconDrawable="@drawable/zone"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:maxLines="1"
+                        app:endIconMode="clear_text">
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_weight="1"
+                        <AutoCompleteTextView
+                            android:id="@+id/zone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"/>
 
-                    app:boxBackgroundMode="outline"
-                    app:helperText="Área"
-                    app:startIconDrawable="@drawable/area"
-                    app:maxLines="2"
-                    app:endIconMode="clear_text">
+                    </com.google.android.material.textfield.TextInputLayout>
 
-                    <AutoCompleteTextView
-                        android:id="@+id/area"
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="textPersonName" />
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_weight="1"
 
-                </com.google.android.material.textfield.TextInputLayout>
+                        app:boxBackgroundMode="outline"
+                        app:helperText="Fecha de revisión"
+                        app:startIconDrawable="@drawable/calendar_icon"
+                        android:clickable="true"
+                        android:focusable="false"
+                        app:maxLines="1"
+                        app:endIconMode="clear_text">
 
-            </LinearLayout>
+                        <AutoCompleteTextView
+                            android:id="@+id/fecha"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                    </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="6dp"
-                    android:layout_marginEnd="6dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_weight="1"
-
-                    app:boxBackgroundMode="outline"
-                    app:helperText="No. ECO"
-                    app:maxLines="1"
-                    app:endIconMode="clear_text">
-
-                    <AutoCompleteTextView
-                        android:id="@+id/eco"
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="number"/>
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_weight="1"
 
-                </com.google.android.material.textfield.TextInputLayout>
+                        app:boxBackgroundMode="outline"
+                        app:helperText="Área"
+                        app:startIconDrawable="@drawable/area"
+                        app:maxLines="2"
+                        app:endIconMode="clear_text">
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="6dp"
-                    android:layout_marginEnd="6dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_weight="1"
+                        <AutoCompleteTextView
+                            android:id="@+id/area"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPersonName" />
 
-                    app:boxBackgroundMode="outline"
-                    app:helperText="KM"
-                    app:startIconDrawable="@drawable/car"
-                    app:maxLines="1"
-                    app:endIconMode="clear_text">
+                    </com.google.android.material.textfield.TextInputLayout>
 
-                    <AutoCompleteTextView
-                        android:id="@+id/km"
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="number" />
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_weight="1"
 
-                </com.google.android.material.textfield.TextInputLayout>
+                        app:boxBackgroundMode="outline"
+                        app:helperText="KM"
+                        app:startIconDrawable="@drawable/car"
+                        app:maxLines="1"
+                        app:endIconMode="clear_text">
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="6dp"
-                    android:layout_marginEnd="6dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_weight="1"
+                        <AutoCompleteTextView
+                            android:id="@+id/km"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number" />
 
-                    app:boxBackgroundMode="outline"
-                    app:helperText="Nombre/RPE"
-                    app:startIconDrawable="@drawable/person"
-                    app:endIconMode="clear_text"
-                    app:maxLines="1">
+                    </com.google.android.material.textfield.TextInputLayout>
 
-                    <AutoCompleteTextView
-                        android:id="@+id/person"
+                    <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="textPersonName" />
+                        android:text="Siguiente"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginTop="15dp" />
 
-                </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
 
-            </LinearLayout>
+            </ScrollView>
 
         </LinearLayout>
 

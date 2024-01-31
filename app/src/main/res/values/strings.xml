@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Checklist</string>
+    <string name="error_field_required">El campo de está vacío</string>
 </resources>
