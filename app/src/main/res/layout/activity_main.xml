@@ -10,16 +10,52 @@
     tools:context=".MainActivity">
 
     <LinearLayout
+        android:id="@+id/layIP"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="horizontal">
 
         <EditText
-            android:id="@+id/ipEdit"
-            android:layout_width="match_parent"
+            android:id="@+id/ip1"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:inputType="number|numberDecimal"
             android:digits="0123456789."/>
+
+        <EditText
+            android:id="@+id/ip2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="number|numberDecimal"
+            android:digits="0123456789."/>
+
+        <EditText
+            android:id="@+id/ip3"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="number|numberDecimal"
+            android:digits="0123456789."/>
+
+        <EditText
+            android:id="@+id/ip4"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="number|numberDecimal"
+            android:digits="0123456789."/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:layout_below="@id/layIP">
 
         <Button
             android:id="@+id/connBtn"
