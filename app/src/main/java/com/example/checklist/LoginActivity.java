@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -39,7 +41,7 @@ import java.net.URL;
 
 public class LoginActivity extends AppCompatActivity {
 
-    String URL_SERVIDOR = "http://192.168.1.137/server/login.php";
+    String URL_SERVIDOR = "http://192.168.1.137/server/servidor/login.php";
     EditText etUsuario, etContrasena;
     Button btnLogin, btnRegistrar;
     String usuario, contrasena;
@@ -51,51 +53,63 @@ public class LoginActivity extends AppCompatActivity {
 
         etUsuario = findViewById(R.id.edituser);
         etContrasena = findViewById(R.id.editpwd);
-        btnLogin = findViewById(R.id.btnInit);
         btnRegistrar = findViewById(R.id.btnReg);
-
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                usuario = etUsuario.getText().toString().trim();
-                contrasena = etContrasena.getText().toString().trim();
-                if (!usuario.isEmpty() && !contrasena.isEmpty()) {
-                    login("http://192.168.1.137/server/validar_usuario.php");
-                } else {
-                    Toast.makeText(LoginActivity.this, "RPE y No. ECO. no pueden estar vacíos", Toast.LENGTH_LONG).show();
-                }
-            }
-        });
-        btnRegistrar.setOnClickListener(v -> startActivity(new Intent(LoginActivity.this, RegisterActivity.class)));
     }
 
-    private void login(String URL) {
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                if (!response.isEmpty()) {
-                    Intent intent = new Intent(getApplicationContext(), ServerActivity.class);
-                    startActivity(intent);
-                } else {
-                    Toast.makeText(LoginActivity.this, "RPE o No. ECO. incorrectos", Toast.LENGTH_LONG).show();
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(LoginActivity.this, error.toString(), Toast.LENGTH_LONG).show();
-            }
-        }){
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> parametros = new HashMap<String, String>();
-                parametros.put("usuario", etUsuario.getText().toString());
-                parametros.put("contrasena", etContrasena.getText().toString());
-                return super.getParams();
-            }
-        };
+    public void login(View view) {
+        if (etUsuario.getText().toString().equals("")){
+            Toast.makeText(this, "Ingrese RPE", Toast.LENGTH_SHORT).show();
+        } else if (etContrasena.getText().toString().equals("")) {
+            Toast.makeText(this, "Ingrese No. ECO", Toast.LENGTH_SHORT).show();
+        } else {
+            final ProgressDialog progressDialog = new ProgressDialog(this);
+            progressDialog.setMessage("Verificando... ");
+            progressDialog.show();
 
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(stringRequest);
+            usuario = etUsuario.getText().toString().trim();
+            contrasena = etContrasena.getText().toString().trim();
+
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_SERVIDOR, new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            progressDialog.dismiss();
+
+                            if (response.equals("Correcto")) {
+                                etUsuario.setText("");
+                                etContrasena.setText("");
+                                startActivity(new Intent(getApplicationContext(), ServerActivity.class));
+                            } else if (response.equals("Incorrecto")){
+                                Toast.makeText(LoginActivity.this, "RPE o No. ECO incorrectos", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    }, 1500);
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    progressDialog.dismiss();
+                    Toast.makeText(LoginActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            }){
+                @Nullable
+                @Override
+                protected Map<String, String> getParams() throws AuthFailureError {
+                    Map<String, String> params = new HashMap<>();
+                    params.put("usuario", usuario);
+                    params.put("contrasena", contrasena);
+                    return params;
+                }
+            };
+            RequestQueue requestQueue = Volley.newRequestQueue(LoginActivity.this);
+            requestQueue.add(stringRequest);
+        }
+    }
+
+    public void registro(View view) {
+        startActivity(new Intent(getApplicationContext(), RegisterActivity.class));
+        finish();
     }
 }

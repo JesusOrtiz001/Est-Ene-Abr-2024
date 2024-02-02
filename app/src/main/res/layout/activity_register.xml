@@ -22,7 +22,7 @@
             app:boxBackgroundMode="outline"
             app:helperText="Escriba su RP"
             app:endIconMode="clear_text"
-            app:startIconDrawable="@drawable/email"
+            app:startIconDrawable="@drawable/person"
 
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"

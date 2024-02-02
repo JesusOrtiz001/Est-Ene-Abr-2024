@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.InputFilter;
+import android.text.Spanned;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,7 +19,7 @@ import java.net.Socket;
 public class MainActivity extends AppCompatActivity {
 
     private EditText ipEdit;
-    private Button connBtn;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +27,31 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ipEdit = findViewById(R.id.ipEdit);
-        connBtn = findViewById(R.id.connBtn);
+        InputFilter[] filters = new InputFilter[1];
+        filters[0] = new InputFilter() {
+            @Override
+            public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+                if (end > start) {
+                    String destText = dest.toString();
+                    String resultText = destText.substring(0, dstart) + source.subSequence(start, end) + destText.substring(dend);
+                    if (!resultText.matches("^\\d{1,3}(\\.(\\d{1,3}(\\.(\\d{1,3}(\\.(\\d{1,3})?)?)?)?)?)?")) {
+                        return "";
+                    } else {
+                        String[] splits = resultText.split("\\.");
+                        for (String split : splits) {
+                            if (Integer.parseInt(split) > 255) {
+                                return "";
+                            }
+                        }
+                    }
+                }
+                return null;
+            }
+        };
+
+        ipEdit.setFilters(filters);
+
+        Button connBtn = findViewById(R.id.connBtn);
 
         connBtn.setOnClickListener(new View.OnClickListener() {
             @Override
