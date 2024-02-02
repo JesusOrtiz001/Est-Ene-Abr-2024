@@ -76,20 +76,31 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private class ConnectTask extends AsyncTask<String, Void, String> {
+    private class ConnectTask extends AsyncTask<String, Void, Boolean> {
 
         @Override
-        protected String doInBackground(String... params) {
+        protected Boolean doInBackground(String... params) {
             String ipAddress = params[0];
             String result = "";
             int port = 80;
 
             try {
-                URL url =  new URL("http://" + ipAddress + "server/conexion.php");
-                HttpURLConnection httpURLConnection =  (HttpURLConnection) url.openConnection();
+                Socket socket = new Socket();
+                socket.connect(new InetSocketAddress(ipAddress, port), 5000);
+                socket.close();
+                return true;
+            } catch (IOException e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
+
+            /*try {
+                URL url = new URL("http://" + ipAddress + "server/conexion.php");
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
 
                 InputStream in = httpURLConnection.getInputStream();
-                BufferedReader reader= new BufferedReader(new InputStreamReader(in, "UTF-8"));
+                BufferedReader reader = new BufferedReader(new InputStreamReader(in, "UTF-8"));
                 String line;
 
                 while ((line = reader.readLine()) != null) {
@@ -104,12 +115,16 @@ public class MainActivity extends AppCompatActivity {
             }
 
             return result;
-            }
+        }*/
 
         @Override
-        protected void onPostExecute(String result) {
+        protected void onPostExecute(Boolean result) {
+            if (result) {
                 startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                 Toast.makeText(MainActivity.this, "Conexión establecida correctamente", Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(MainActivity.this, "No es posible conectarse al servidor", Toast.LENGTH_LONG).show();
             }
         }
     }
+}
