@@ -9,6 +9,8 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.InputFilter;
+import android.text.InputType;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -41,7 +43,7 @@ import java.net.URL;
 
 public class LoginActivity extends AppCompatActivity {
 
-    String URL_SERVIDOR = "http://192.168.1.137/server/servidor/login.php";
+    String URL_SERVIDOR = "http://192.168.115.4/server/servidor/login.php";
     EditText etUsuario, etContrasena;
     Button btnLogin, btnRegistrar;
     String usuario, contrasena;
@@ -52,6 +54,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         etUsuario = findViewById(R.id.edituser);
+        etUsuario.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
         etContrasena = findViewById(R.id.editpwd);
         btnRegistrar = findViewById(R.id.btnReg);
     }
@@ -80,7 +83,10 @@ public class LoginActivity extends AppCompatActivity {
                             if (response.equals("Correcto")) {
                                 etUsuario.setText("");
                                 etContrasena.setText("");
-                                startActivity(new Intent(getApplicationContext(), ServerActivity.class));
+                                Intent intent = new Intent(getApplicationContext(), ServerActivity.class);
+                                intent.putExtra("usuario", usuario);
+                                startActivity(intent);
+                                Toast.makeText(LoginActivity.this, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show();
                             } else if (response.equals("Incorrecto")){
                                 Toast.makeText(LoginActivity.this, "RPE o No. ECO incorrectos", Toast.LENGTH_SHORT).show();
                             }
