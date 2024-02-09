@@ -6,12 +6,14 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.InputFilter;
 import android.text.InputType;
 import android.text.TextUtils;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -29,6 +31,8 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.jetbrains.annotations.Nullable;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
@@ -43,9 +47,16 @@ import java.net.URL;
 
 public class LoginActivity extends AppCompatActivity {
 
-    String URL_SERVIDOR = "http://192.168.115.4/server/servidor/login.php";
+    //9A8JW 8000056527 nAtnnie117@*
+
+    //String URL_SERVIDOR = "http://192.168.115.4/server/servidor/login.php";
+    String URL_SERVIDOR = "http://192.168.2.93/server/inicio.php";
     EditText etUsuario, etContrasena;
     Button btnLogin, btnRegistrar;
+
+    private static final String PREFS_NAME = "LoginPrefs";
+    private static final String PREF_USERNAME = "usuario";
+    private static final String PREF_PASSWORD= "contrasena";
     String usuario, contrasena;
 
     @Override
@@ -57,6 +68,13 @@ public class LoginActivity extends AppCompatActivity {
         etUsuario.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
         etContrasena = findViewById(R.id.editpwd);
         btnRegistrar = findViewById(R.id.btnReg);
+
+        etContrasena.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_NUMBER_VARIATION_PASSWORD);
+        etContrasena.setTransformationMethod(PasswordTransformationMethod.getInstance());
+
+        SharedPreferences preferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+        etUsuario.setText(preferences.getString(PREF_USERNAME, ""));
+        etContrasena.setText(preferences.getString(PREF_PASSWORD, ""));
     }
 
     public void login(View view) {
@@ -80,17 +98,29 @@ public class LoginActivity extends AppCompatActivity {
                         public void run() {
                             progressDialog.dismiss();
 
-                            if (response.equals("Correcto")) {
-                                etUsuario.setText("");
-                                etContrasena.setText("");
-                                Intent intent = new Intent(getApplicationContext(), ServerActivity.class);
-                                intent.putExtra("usuario", usuario);
-                                startActivity(intent);
-                                Toast.makeText(LoginActivity.this, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show();
-                            } else if (response.equals("Incorrecto")){
-                                Toast.makeText(LoginActivity.this, "RPE o No. ECO incorrectos", Toast.LENGTH_SHORT).show();
+                            try {
+                                JSONObject jsonResponse = new JSONObject(response);
+                                if (jsonResponse.getString("status").equals("Correcto")) {
+                                    String nombreUsuario = jsonResponse.getString("nombreUsuario");
+
+                                    saveCredentials();
+                                    etUsuario.setText("");
+                                    etContrasena.setText("");
+                                    Intent intent = new Intent(getApplicationContext(), ServerActivity.class);
+                                    intent.putExtra("usuario", usuario);
+                                    intent.putExtra("nombreUsuario", nombreUsuario);
+                                    startActivity(intent);
+                                    Toast.makeText(LoginActivity.this, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show();
+                                } else if (jsonResponse.getString("status").equals("Incorrecto")) {
+                                    Toast.makeText(LoginActivity.this, "RPE o No. ECO incorrectos", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(LoginActivity.this, "Error en la respuesta del servidor", Toast.LENGTH_SHORT).show();
+                                }
+                            } catch(JSONException e){
+                                e.printStackTrace();
+                                Toast.makeText(LoginActivity.this, "Error al procesar la respuesta del servidor", Toast.LENGTH_SHORT).show();
+                                }
                             }
-                        }
                     }, 1500);
                 }
             }, new Response.ErrorListener() {
@@ -117,5 +147,13 @@ public class LoginActivity extends AppCompatActivity {
     public void registro(View view) {
         startActivity(new Intent(getApplicationContext(), RegisterActivity.class));
         finish();
+    }
+
+    private void saveCredentials() {
+        SharedPreferences preferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString(PREF_USERNAME, etUsuario.getText().toString().trim());
+        editor.putString(PREF_PASSWORD, etContrasena.getText().toString().trim());
+        editor.apply();
     }
 }

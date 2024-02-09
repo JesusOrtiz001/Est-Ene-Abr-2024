@@ -12,36 +12,59 @@
         android:layout_height="100dp"
         android:background="@drawable/bg_view"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="REGISTRO VEHICULAR"
-        android:textSize="24sp"
-        android:fontFamily="sans-serif-condensed"
-        android:layout_gravity="center"
-        android:gravity="center"/>
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="-50dp"
         android:layout_below="@id/top_view">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="center"
+                android:text="REGISTRO VEHICULAR"
+                android:textSize="24sp" />
+
+            <!--<ImageButton
+                android:id="@+id/settings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:src="@drawable/settings" >
+
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            </ImageButton>-->
+
+        </LinearLayout>
 
             <TextView
                 android:id="@+id/gen"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
                 android:layout_marginTop="15dp"
+                android:layout_marginEnd="16dp"
                 android:layout_weight="1"
-                android:text="DATOS GENERALES"
-                android:gravity="center" />
+                android:gravity="center"
+                android:text="DATOS GENERALES" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -77,23 +100,23 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
-                        android:layout_marginEnd="16dp"
                         android:layout_marginTop="15dp"
+                        android:layout_marginEnd="16dp"
                         android:layout_weight="1"
 
-                        app:boxBackgroundMode="outline"
-                        app:helperText="Zona"
-                        app:startIconDrawable="@drawable/zone"
                         android:clickable="true"
                         android:focusable="true"
+                        app:boxBackgroundMode="outline"
+                        app:endIconMode="clear_text"
+                        app:helperText="Zona"
                         app:maxLines="1"
-                        app:endIconMode="clear_text">
+                        app:startIconDrawable="@drawable/zone">
 
                         <AutoCompleteTextView
                             android:id="@+id/zone"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="number"/>
+                            android:inputType="number" />
 
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -105,13 +128,13 @@
                         android:layout_marginEnd="16dp"
                         android:layout_weight="1"
 
-                        app:boxBackgroundMode="outline"
-                        app:helperText="Fecha de revisión"
-                        app:startIconDrawable="@drawable/calendar_icon"
                         android:clickable="true"
                         android:focusable="false"
+                        app:boxBackgroundMode="outline"
+                        app:endIconMode="clear_text"
+                        app:helperText="Fecha de revisión"
                         app:maxLines="1"
-                        app:endIconMode="clear_text">
+                        app:startIconDrawable="@drawable/calendar_icon">
 
                         <AutoCompleteTextView
                             android:id="@+id/fecha"
@@ -125,15 +148,15 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
-                        android:layout_marginEnd="16dp"
                         android:layout_marginTop="15dp"
+                        android:layout_marginEnd="16dp"
                         android:layout_weight="1"
 
                         app:boxBackgroundMode="outline"
+                        app:endIconMode="clear_text"
                         app:helperText="Área"
-                        app:startIconDrawable="@drawable/area"
                         app:maxLines="2"
-                        app:endIconMode="clear_text">
+                        app:startIconDrawable="@drawable/area">
 
                         <AutoCompleteTextView
                             android:id="@+id/area"
@@ -147,15 +170,15 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
-                        android:layout_marginEnd="16dp"
                         android:layout_marginTop="15dp"
+                        android:layout_marginEnd="16dp"
                         android:layout_weight="1"
 
                         app:boxBackgroundMode="outline"
+                        app:endIconMode="clear_text"
                         app:helperText="KM"
-                        app:startIconDrawable="@drawable/car"
                         app:maxLines="1"
-                        app:endIconMode="clear_text">
+                        app:startIconDrawable="@drawable/car">
 
                         <AutoCompleteTextView
                             android:id="@+id/km"
@@ -172,31 +195,34 @@
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/hola"
+                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Hola" style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+                            android:text="Hola" />
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/hola2"
+                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Hola" style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+                            android:text="Hola" />
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/hola3"
+                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Hola" style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+                            android:text="Hola" />
 
                     </LinearLayout>
 
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Siguiente"
                         android:layout_marginStart="16dp"
+                        android:layout_marginTop="15dp"
                         android:layout_marginEnd="16dp"
-                        android:layout_marginTop="15dp" />
+                        android:text="Siguiente" />
 
                 </LinearLayout>
 
