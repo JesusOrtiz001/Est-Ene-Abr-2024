@@ -48,21 +48,17 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginTop="10dp"
 
-                android:hint="RP"
+                android:hint="RPE"
                 app:boxBackgroundMode="outline"
-                app:helperText="Escriba su RP"
+                app:helperText="Escriba su RPE"
                 app:endIconMode="clear_text"
-                app:startIconDrawable="@drawable/email"
-
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent">
+                app:startIconDrawable="@drawable/person">
 
                 <AutoCompleteTextView
                     android:id="@+id/edituser"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textEmailAddress"/>
+                    android:inputType="textCapSentences"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -87,7 +83,7 @@
                     android:id="@+id/editpwd"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textPassword"/>
+                    android:inputType="number"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -111,6 +107,7 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginStart="16dp"
                 android:text="Iniciar Sesión"
+                android:onClick="login"
                 android:textColor="#fff"
                 app:backgroundTint="#019A47"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -127,6 +124,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_gravity="center"
                 android:text="Registrarse"
+                android:onClick="registro"
                 android:textColor="#fff"
                 app:backgroundTint="#019A47"
                 app:layout_constraintBottom_toBottomOf="parent"
