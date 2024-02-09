@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15dp"
+    tools:context=".GeneralActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView28"
+        android:layout_width="335dp"
+        android:layout_height="44dp"
+        android:text="Condiciones del vehículo"
+        app:autoSizeTextType="uniform"
+        android:textColor="#000000"
+        tools:layout_editor_absoluteX="44dp"
+        tools:layout_editor_absoluteY="30dp" />
+
+    <TextView
+        android:id="@+id/textView29"
+        android:layout_width="246dp"
+        android:layout_height="36dp"
+        android:text="General"
+        app:autoSizeTextType="uniform"
+        android:textColor="#000000"
+        tools:layout_editor_absoluteX="44dp"
+        tools:layout_editor_absoluteY="80dp" />
+
+    <TextView
+        android:id="@+id/textView30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:text="Freno de pie"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="143dp" />
+
+    <Button
+        android:id="@+id/button47"
+        android:layout_width="45dp"
+        android:layout_height="42dp"
+        android:text="B"
+        android:state_pressed="true"
+        android:color="@color/green"
+        tools:layout_editor_absoluteX="208dp"
+        tools:layout_editor_absoluteY="129dp"
+        android:onClick="B"/>
+
+        <Button
+            android:id="@+id/button33"
+            android:layout_width="45dp"
+            android:layout_height="42dp"
+            android:color="@color/yellow"
+            android:onClick="R"
+            android:state_pressed="true"
+            android:text="R"
+            tools:layout_editor_absoluteX="274dp"
+            tools:layout_editor_absoluteY="129dp" />
+
+        <Button
+            android:id="@+id/button44"
+            android:layout_width="45dp"
+            android:layout_height="42dp"
+            android:text="M"
+            android:state_pressed="true"
+            android:color="@color/red"
+            tools:layout_editor_absoluteX="340dp"
+            tools:layout_editor_absoluteY="129dp"
+            android:onClick="M"/>
+
+    <TextView
+        android:id="@+id/textView31"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:text="Freno de mano"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="189dp" />
+
+    <Button
+        android:id="@+id/button39"
+        android:layout_width="45dp"
+        android:layout_height="42dp"
+        android:text="B"
+        android:state_pressed="true"
+        android:color="@color/green"
+        tools:layout_editor_absoluteX="208dp"
+        tools:layout_editor_absoluteY="179dp"
+        android:onClick="B"/>
+
+    <Button
+        android:id="@+id/button31"
+        android:layout_width="45dp"
+        android:layout_height="42dp"
+        android:text="R"
+        android:state_pressed="true"
+        android:color="@color/yellow"
+        tools:layout_editor_absoluteX="274dp"
+        tools:layout_editor_absoluteY="179dp"
+        android:OnClick="R"/>
+
+    <Button
+        android:id="@+id/button42"
+        android:layout_width="45dp"
+        android:layout_height="42dp"
+        android:text="M"
+        android:state_pressed="true"
+        android:color="@color/red"
+        tools:layout_editor_absoluteX="340dp"
+        tools:layout_editor_absoluteY="179dp"
+        android:OnClick="M"/>
+
+        <TextView
+            android:id="@+id/textView32"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="44dp"
+            android:text="Cinturon de seguridad"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="241dp" />
+
+    <Button
+        android:id="@+id/button36"
+        android:layout_width="45dp"
+        android:layout_height="42dp"
+        android:text="B"
+        android:state_pressed="true"
+        android:color="@color/green"
+        tools:layout_editor_absoluteX="208dp"
+        tools:layout_editor_absoluteY="229dp"
+        android:OnClick="B"/>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="45dp"
+        android:layout_height="42dp"
+        android:text="R"
+        android:state_pressed="true"
+        android:color="@color/yellow"
+        tools:layout_editor_absoluteX="274dp"
+        tools:layout_editor_absoluteY="229dp"
+        android:OnClick="R"/>
+
+    <Button
+        android:id="@+id/button46"
+        android:layout_width="45dp"
+        android:layout_height="42dp"
+        android:text="M"
+        android:state_pressed="true"
+        android:color="@color/red"
+        tools:layout_editor_absoluteX="340dp"
+        tools:layout_editor_absoluteY="229dp"
+        android:OnClick="M"/>
+
+    <TextView
+        android:id="@+id/textView33"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:text="Extintor"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="293dp" />
+
+    <Button
+        android:id="@+id/button40"
+        android:layout_width="45dp"
+        android:layout_height="42dp"
+        android:text="B"
+        android:state_pressed="true"
+        android:color="@color/green"
+        tools:layout_editor_absoluteX="208dp"
+        tools:layout_editor_absoluteY="282dp"
+        android:OnClick="B"/>
+
+    <Button
+        android:id="@+id/button41"
+        android:layout_width="45dp"
+        android:layout_height="42dp"
+        android:text="R"
+        android:state_pressed="true"
+        android:color="@color/yellow"
+        tools:layout_editor_absoluteX="274dp"
+        tools:layout_editor_absoluteY="282dp"
+        android:OnClick="R"/>
+
+    <Button
+        android:id="@+id/button27"
+        android:layout_width="45dp"
+        android:layout_height="42dp"
+        android:text="M"
+        android:state_pressed="true"
+        android:color="@color/red"
+        tools:layout_editor_absoluteX="340dp"
+        tools:layout_editor_absoluteY="282dp"
+        android:OnClick="M"/>
+
+    <TextView
+        android:id="@+id/textView34"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:text="Gato y llave"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="347dp" />
+
+    <Button
+        android:id="@+id/button37"
+        android:layout_width="45dp"
+        android:layout_height="42dp"
+        android:text="B"
+        android:state_pressed="true"
+        android:color="@color/green"
+        tools:layout_editor_absoluteX="208dp"
+        tools:layout_editor_absoluteY="335dp"
+        android:OnClick="B"/>
+
+    <Button
+        android:id="@+id/button32"
+        android:layout_width="45dp"
+        android:layout_height="42dp"
+        android:text="R"
+        android:state_pressed="true"
+        android:color="@color/yellow"
+        tools:layout_editor_absoluteX="274dp"
+        tools:layout_editor_absoluteY="335dp"
+        android:OnClick="R"/>
+
+    <Button
+        android:id="@+id/button28"
+        android:layout_width="45dp"
+        android:layout_height="42dp"
+        android:text="M"
+        android:state_pressed="true"
+        android:color="@color/red"
+        tools:layout_editor_absoluteX="340dp"
+        tools:layout_editor_absoluteY="335dp"
+        android:OnClick="M"/>
+
+    <TextView
+        android:id="@+id/textView35"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:text="Llanta de refacción"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="401dp" />
+
+    <Button
+        android:id="@+id/button45"
+        android:layout_width="45dp"
+        android:layout_height="42dp"
+        android:text="B"
+        android:state_pressed="true"
+        android:color="@color/green"
+        tools:layout_editor_absoluteX="208dp"
+        tools:layout_editor_absoluteY="387dp"
+        android:OnClick="B"/>
+
+    <Button
+        android:id="@+id/button48"
+        android:layout_width="45dp"
+        android:layout_height="42dp"
+        android:text="R"
+        android:state_pressed="true"
+        android:color="@color/yellow"
+        tools:layout_editor_absoluteX="274dp"
+        tools:layout_editor_absoluteY="387dp"
+        android:OnClick="R"/>
+
+    <Button
+        android:id="@+id/button43"
+        android:layout_width="45dp"
+        android:layout_height="42dp"
+        android:text="M"
+        android:state_pressed="true"
+        android:color="@color/red"
+        tools:layout_editor_absoluteX="340dp"
+        tools:layout_editor_absoluteY="387dp"
+        android:OnClick="M"/>
+
+    <TextView
+        android:id="@+id/textView36"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Suspención"
+        tools:layout_editor_absoluteX="44dp"
+        tools:layout_editor_absoluteY="451dp" />
+
+    <Button
+        android:id="@+id/button38"
+        android:layout_width="45dp"
+        android:layout_height="42dp"
+        android:text="B"
+        android:state_pressed="true"
+        android:color="@color/green"
+        tools:layout_editor_absoluteX="208dp"
+        tools:layout_editor_absoluteY="441dp"
+        android:OnClick="B"/>
+
+    <Button
+        android:id="@+id/button34"
+        android:layout_width="45dp"
+        android:layout_height="42dp"
+        android:text="R"
+        android:state_pressed="true"
+        android:color="@color/yellow"
+        tools:layout_editor_absoluteX="274dp"
+        tools:layout_editor_absoluteY="441dp"
+        android:OnClick="R"/>
+
+    <Button
+        android:id="@+id/button30"
+        android:layout_width="45dp"
+        android:layout_height="42dp"
+        android:text="M"
+        android:state_pressed="true"
+        android:color="@color/red"
+        tools:layout_editor_absoluteX="340dp"
+        tools:layout_editor_absoluteY="441dp"
+        android:OnClick="M"/>
+
+    <TextView
+        android:id="@+id/textView37"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Escalera sencilla"
+        tools:layout_editor_absoluteX="44dp"
+        tools:layout_editor_absoluteY="506dp" />
+
+    <Button
+        android:id="@+id/button26"
+        android:layout_width="45dp"
+        android:layout_height="42dp"
+        android:text="B"
+        android:state_pressed="true"
+        android:color="@color/green"
+        tools:layout_editor_absoluteX="208dp"
+        tools:layout_editor_absoluteY="492dp"
+        android:OnClick="B"/>
+
+    <Button
+        android:id="@+id/button29"
+        android:layout_width="45dp"
+        android:layout_height="42dp"
+        android:text="R"
+        android:state_pressed="true"
+        android:color="@color/yellow"
+        tools:layout_editor_absoluteX="274dp"
+        tools:layout_editor_absoluteY="492dp"
+        android:OnClick="R"/>
+
+    <Button
+        android:id="@+id/button35"
+        android:layout_width="45dp"
+        android:layout_height="42dp"
+        android:text="M"
+        android:state_pressed="true"
+        android:color="@color/red"
+        tools:layout_editor_absoluteX="340dp"
+        tools:layout_editor_absoluteY="492dp"
+        android:OnClick="M"/>
+
+    <TextView
+        android:id="@+id/textView39"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tapiceria general"
+        tools:layout_editor_absoluteX="46dp"
+        tools:layout_editor_absoluteY="553dp" />
+
+    <Button
+        android:id="@+id/button50"
+        android:layout_width="45dp"
+        android:layout_height="42dp"
+        android:text="B"
+        android:state_pressed="true"
+        android:color="@color/green"
+        tools:layout_editor_absoluteX="208dp"
+        tools:layout_editor_absoluteY="541dp"
+        android:OnClick="B"/>
+
+    <Button
+        android:id="@+id/button49"
+        android:layout_width="45dp"
+        android:layout_height="42dp"
+        android:text="R"
+        android:state_pressed="true"
+        android:color="@color/yellow"
+        tools:layout_editor_absoluteX="274dp"
+        tools:layout_editor_absoluteY="541dp"
+        android:OnClick="R"/>
+
+    <Button
+        android:id="@+id/button51"
+        android:layout_width="45dp"
+        android:layout_height="42dp"
+        android:text="M"
+        android:state_pressed="true"
+        android:color="@color/red"
+        tools:layout_editor_absoluteX="340dp"
+        tools:layout_editor_absoluteY="541dp"
+        android:OoClick="M"/>
+
+    <TextView
+        android:id="@+id/textView38"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Limpieza general"
+        tools:layout_editor_absoluteX="46dp"
+        tools:layout_editor_absoluteY="604dp" />
+
+    <Button
+        android:id="@+id/button54"
+        android:layout_width="45dp"
+        android:layout_height="42dp"
+        android:text="B"
+        android:state_pressed="true"
+        android:color="@color/green"
+        tools:layout_editor_absoluteX="208dp"
+        tools:layout_editor_absoluteY="590dp"
+        android:OnClick="B"/>
+
+    <Button
+        android:id="@+id/button53"
+        android:layout_width="45dp"
+        android:layout_height="42dp"
+        android:text="R"
+        android:state_pressed="true"
+        android:color="@color/yellow"
+        tools:layout_editor_absoluteX="274dp"
+        tools:layout_editor_absoluteY="590dp"
+        android:OnClick="R"/>
+
+    <Button
+        android:id="@+id/button52"
+        android:layout_width="45dp"
+        android:layout_height="42dp"
+        android:text="M"
+        android:state_pressed="true"
+        android:color="@color/red"
+        tools:layout_editor_absoluteX="340dp"
+        tools:layout_editor_absoluteY="590dp"
+        android:OnClick="M"/>
+
+    <Button
+        android:id="@+id/siguiente1"
+        android:layout_width="172dp"
+        android:layout_height="45dp"
+        android:text="Siguiente"
+        tools:layout_editor_absoluteX="110dp"
+        tools:layout_editor_absoluteY="650dp" />
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
